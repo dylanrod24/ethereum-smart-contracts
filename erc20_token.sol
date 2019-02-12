@@ -4,7 +4,7 @@ pragma solidity ^0.5.0;
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
 // ---------------------------------------------------------------------------
 
-contract ERC20Interface {
+interface ERC20 {
     function totalSupply() public view returns (uint);
     function balanceOf(address tokenOwner) public view returns (uint balance);
     function transfer(address to, uint tokens) public returns (bool success);
@@ -17,7 +17,7 @@ contract ERC20Interface {
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
-contract Token is ERC20Interface {
+contract Token is ERC20 {
     string public name = "Token";
     string public symbol = "TKN";
     uint public decimals = 0; // There's usually 18 decimal places
